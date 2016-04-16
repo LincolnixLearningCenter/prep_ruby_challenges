@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>README</title>
-<!-- 2016-04-16 Sat 04:06 -->
+<!-- 2016-04-16 Sat 04:24 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -153,7 +153,7 @@ for the JavaScript code in this tag.
 <div class="outline-text-3" id="text-1-1">
 <p>
 Write a method <i>power</i> which takes two integers (<i>base</i> and <i>exponent</i>) and 
-returns the <i>base</i> raised to the power of <i>exponent</i>. Do not use Ruby's <i>**</i>
+returns the <i>base</i> raised to the power of <i>exponent</i>. Do not use Ruby's "**"
 operator for this!
 </p>
 
@@ -161,6 +161,27 @@ operator for this!
 
 <pre class="src src-ruby">&gt; power(3,4)
 =&gt; 81 # (3*3*3*3)
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">def power(base,exponent)
+  # returns base raised to the power of exponent without the use of ** operator
+
+  a = base
+  b = exponent
+  c = []
+
+  b.times do
+    c.push a
+  end
+
+  #c.inject(0) {|d,e| d*e}
+  c.inject(1) {|product, n| product * n}
+end
+
+power(2,3)
 </pre>
 </div>
 </div>

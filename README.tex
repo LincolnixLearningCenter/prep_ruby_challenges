@@ -1,4 +1,4 @@
-% Created 2016-04-16 Sat 04:06
+% Created 2016-04-16 Sat 04:24
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -36,12 +36,31 @@
 \label{sec-1-1}
 
 Write a method \emph{power} which takes two integers (\emph{base} and \emph{exponent}) and 
-returns the \emph{base} raised to the power of \emph{exponent}. Do not use Ruby's \emph{**}
+returns the \emph{base} raised to the power of \emph{exponent}. Do not use Ruby's "**"
 operator for this!
 
 \begin{verbatim}
 > power(3,4)
 => 81 # (3*3*3*3)
+\end{verbatim}
+
+\begin{verbatim}
+def power(base,exponent)
+  # returns base raised to the power of exponent without the use of ** operator
+
+  a = base
+  b = exponent
+  c = []
+
+  b.times do
+    c.push a
+  end
+
+  #c.inject(0) {|d,e| d*e}
+  c.inject(1) {|product, n| product * n}
+end
+
+power(2,3)
 \end{verbatim}
 
 \subsection{Factorial}
