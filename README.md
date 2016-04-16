@@ -27,7 +27,7 @@ operator for this!
       c.inject(1) {|product, n| product * n}
     end
     
-    power(3,4)
+    p power(3,4)
 
 ## Factorial
 
@@ -54,9 +54,33 @@ every number up to the current number multiplied together.
     
     p factorial(5)
 
-    120
-
 ## Uniques
+
+Write a method *uniques* which takes an array of items and returns the array
+without any duplicates. Don't use Ruby's *uniq* method.
+
+    uniques([1,5,"frog",2,1,3,"frog"])
+    => [1,5,"frog",2,3]
+
+    #!/usr/bin/ruby
+    
+    def uniques(array)
+      # Array of Items => Array of Items
+      # Takes an array, returns array with duplicate items removed.
+      # Write without uniq
+    
+      no_dupes = []
+      couples = array.combination(2)
+      groups = array.group_by{|e| e}
+    
+      groups.each do |g|
+        no_dupes.push(g[0])
+      end
+    
+      return no_dupes
+    end
+    
+    p uniques([1,5,"frog",2,1,3,"frog"])
 
 ## Combinations
 
