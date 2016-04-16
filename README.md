@@ -44,16 +44,17 @@ every number up to the current number multiplied together.
     
       a = []
     
-      (1..n).to_a.each do |i|
+      n.downto(1).each do |i|
         a.push i
       end
     
-      puts a
+      return a.inject(1) {|product, n| product * n}
+    
     end
     
-    factorial(5)
+    p factorial(5)
 
-    nil
+    120
 
 ## Uniques
 
