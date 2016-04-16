@@ -24,15 +24,36 @@ operator for this!
         c.push a
       end
     
-      #c.inject(0) {|d,e| d*e}
       c.inject(1) {|product, n| product * n}
     end
     
     power(3,4)
 
-    81
-
 ## Factorial
+
+Write a method *factorial* which takes a number and returns the product of 
+every number up to the current number multiplied together.
+
+    > factorial(5)
+    => 120 # from 1*2*3*4*5
+
+    def factorial(n)
+      # Int => Int
+      # Takes a number and returns the product of every number up to 
+      # the current number multiplied together
+    
+      a = []
+    
+      (1..n).to_a.each do |i|
+        a.push i
+      end
+    
+      puts a
+    end
+    
+    factorial(5)
+
+    nil
 
 ## Uniques
 
