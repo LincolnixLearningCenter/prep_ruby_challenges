@@ -1,6 +1,4 @@
 
-#!/usr/bin/ruby
-
 def uniques(array)
   # Array of Items => Array of Items
   # Takes an array, returns array with duplicate items removed.

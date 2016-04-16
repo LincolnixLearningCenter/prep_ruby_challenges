@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>README</title>
-<!-- 2016-04-16 Sat 10:47 -->
+<!-- 2016-04-16 Sat 11:12 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -235,9 +235,7 @@ uniques([1,5,"frog",2,1,3,"frog"])
 
 <div class="org-src-container">
 
-<pre class="src src-ruby">#!/usr/bin/ruby
-
-def uniques(array)
+<pre class="src src-ruby">def uniques(array)
   # Array of Items =&gt; Array of Items
   # Takes an array, returns array with duplicate items removed.
   # Write without uniq
@@ -261,7 +259,45 @@ p uniques([1,5,"frog",2,1,3,"frog"])
 
 <div id="outline-container-sec-1-4" class="outline-3">
 <h3 id="sec-1-4"><span class="section-number-3">1.4</span> Combinations</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Write a method <i>combinations</i> which takes two arrays of strings and returns
+an array with all of the combinations of the items in them, listing the first
+items first.
+</p>
+
+<pre class="example">
+&gt; combinations(["on","in"],["to","rope"])
+=&gt; ["onto","onrope","into","inrope"]
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">def combinations(ary1,ary2)
+  # Ary(Str), Ary(Str) =&gt; Ary(Str)
+  # Takes two arrays of strings, returns an array with all of the combinations
+  # of the items in them, listing the first item first.
+
+  a = ary1
+  b = ary2
+
+  c = []
+
+  a.each do |s|
+    b.each do |x|
+      c.push "#{s}#{x}"
+    end
+  end
+
+  p c
+end
+
+combinations(["on","in"],["to","rope"])
+</pre>
 </div>
+</div>
+</div>
+
 <div id="outline-container-sec-1-5" class="outline-3">
 <h3 id="sec-1-5"><span class="section-number-3">1.5</span> Primes</h3>
 </div>
