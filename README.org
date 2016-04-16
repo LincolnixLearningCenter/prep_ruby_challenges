@@ -1,0 +1,20 @@
+#+options: toc:nil
+
+*prep_ruby_challenges*
+====================
+
+[[http://www.vikingcodeschool.com/web-markup-and-coding/level-up-your-ruby-judo][The Ruby challenge problems from the Markup and Coding course of the Viking Code School Prep Work]]
+
+
+* Ruby Calisthenics
+
+** Power
+   
+   Write a method /power/ which takes two integers (/base/ and /exponent/) and 
+   returns
+
+** Factorial
+** Uniques
+** Combinations
+** Primes
+** Rectangle Overlap  
