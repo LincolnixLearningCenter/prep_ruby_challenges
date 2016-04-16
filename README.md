@@ -28,7 +28,9 @@ operator for this!
       c.inject(1) {|product, n| product * n}
     end
     
-    power(2,3)
+    power(3,4)
+
+    81
 
 ## Factorial
 
