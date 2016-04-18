@@ -1,4 +1,4 @@
-% Created 2016-04-18 Mon 11:00
+% Created 2016-04-18 Mon 11:38
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -28,6 +28,8 @@
 \textbf{prep$_{\text{ruby}}$$_{\text{challenges}}$}
 
 \href{http://www.vikingcodeschool.com/web-markup-and-coding/level-up-your-ruby-judo}{The Ruby challenge problems from the Markup and Coding course of the Viking Code School Prep Work}
+
+\url{https://www.vikingcodeschool.com}
 
 \section{Ruby Calisthenics}
 \label{sec-1}
@@ -246,8 +248,117 @@ overlap( [ [0,0],[1,4] ], [ [1,1],[3,2] ] )
 \section{A Bigger Challenge: The Counting Game}
 \label{sec-2}
 
-\subsection{NB: Software Engineering}
+10 friends are sitting in a circle around a table and decide to play a new 
+game. In it, they count up through the numbers from 1 to 100. The first person
+says "1", the second says "2" and so on\ldots{} but with a few catches:
+
+\begin{itemize}
+\item Whenever the number is divisible by 7, they switch directions. So person 6 
+will say "6", person 7 will say "7", then person 6 again will say "8".
+
+\begin{verbatim}
+when x%y == 0 # reverse
+\end{verbatim}
+
+\item Whenever the number is divisible by 11, they skip the next person for the 
+following number. For instance, if person 3 says "33", person 5 will say 
+"34" instead (person 4 gets skipped).
+
+\begin{verbatim}
+friends = []
+10.times do 
+  friends.push 0
+end
+\end{verbatim}
+
+\begin{verbatim}
+# Produces each number and which person said it
+# Hash {Person(Int)=>List of Numbers(Array of Integers)}
+
+# Example Return Steps
+# { 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => nil, 9 => nil, 10 => nil }
+# { 1 => [1,12], 2 => 2, 3 => [3,11], 4 => [4,10], 5 => [5,9], 6 => [6,8], 7 => 7, 8 => nil, 9 => nil, 10 => nil }
+# { 1 => [1,12], 2 => 2, 3 => [3,11], 4 => [4,10], 5 => [5,9], 6 => [6,8], 7 => 7, 8 => nil, 9 => 14, 10 => [13,15] }
+# { 1 => [1,12,16,25], 2 => [2,17,24], 3 => [3,11,18,23], 4 => [4,10,19], 5 => [5,9,20,22], 6 => [6,8,21], 7 => 7, 8 => nil, 9 => 14, 10 => [13,15] }
+\end{verbatim}
+\end{itemize}
+
+\subsection{The Elevator}
 \label{sec-2-1}
+
+You live in a 25 story building with one elevator. The central 
+microcontroller got eaten by rats and the building manager has asked you to 
+code up the elevator's operating procedure until he can get a new one. You 
+figure you'll have to learn to actually code soon but you first want to think
+things through and pseudocode your design.
+
+\subsubsection{Elevator Details}
+\label{sec-2-1-1}
+
+The basic elevator machinery is completely dumb (it doesn't do anything it's
+not told to do) but is capable of interpreting and executing the commands:
+
+\begin{itemize}
+\item "open elevator door"
+\item "close elevator door"
+\item "go up full speed"
+\item "go down full speed"
+\item "slow down"
+\item "stop"
+\end{itemize}
+
+
+\ldots{}and it accepts user input in the form of:
+
+\begin{itemize}
+\item floor buttons inside the elevator
+\item door open and close buttons inside the elevator
+\item up and down call buttons on each floor
+\end{itemize}
+
+
+\ldots{}and it has sensors for:
+
+\begin{itemize}
+\item if a human is in the door closing path
+\item if it is currently at a floor (instead of in-between floors)
+\end{itemize}
+
+
+\ldots{}and it has a few quirky requirements:
+
+\begin{itemize}
+\item it must "slow down" at least 1 floor before it stops.
+\item there is a small chance that it actually stops between floors by 
+accident (it's an old elevator)
+\end{itemize}
+
+\subsubsection{The Task}
+\label{sec-2-1-2}
+
+Your job is to design a properly working elevator. It should stop on each 
+floor it is physically able to during a given trip to pick up whoever is 
+going the same direction. Additionally, make sure that no one is:
+
+\begin{enumerate}
+\item smashed into the ground
+\item pushed through the roof
+\item squished by the doors
+\item let off in between floors
+\item stuck going the wrong direction (unless they choose not to exit)
+\end{enumerate}
+
+
+This will be good practice thinking about all the edge cases and scenarios 
+that a user can do.
+
+The point isn't to follow any strict guidelines of syntax but rather to 
+focus on getting the logic of the problem figured out and then organizing it
+into modules that accomplish the sub-tasks that are required.
+
+
+\subsection{NB: Software Engineering}
+\label{sec-2-2}
 
 \url{https://www.vikingcodeschool.com/software-engineering-basics}
 

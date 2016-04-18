@@ -2,6 +2,8 @@
 
 [The Ruby challenge problems from the Markup and Coding course of the Viking Code School Prep Work](http://www.vikingcodeschool.com/web-markup-and-coding/level-up-your-ruby-judo)
 
+<https://www.vikingcodeschool.com>
+
 # Ruby Calisthenics
 
 ## Power
@@ -186,6 +188,89 @@ otherwise overwrite each other. As expressed by a sixth grade student:
     # further development needed to explore every case
 
 # A Bigger Challenge: The Counting Game
+
+10 friends are sitting in a circle around a table and decide to play a new 
+game. In it, they count up through the numbers from 1 to 100. The first person
+says "1", the second says "2" and so on&#x2026; but with a few catches:
+
+-   Whenever the number is divisible by 7, they switch directions. So person 6 
+    will say "6", person 7 will say "7", then person 6 again will say "8".
+    
+        when x%y == 0 # reverse
+
+-   Whenever the number is divisible by 11, they skip the next person for the 
+    following number. For instance, if person 3 says "33", person 5 will say 
+    "34" instead (person 4 gets skipped).
+    
+        friends = []
+        10.times do 
+          friends.push 0
+        end
+    
+        # Produces each number and which person said it
+        # Hash {Person(Int)=>List of Numbers(Array of Integers)}
+        
+        # Example Return Steps
+        # { 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => nil, 9 => nil, 10 => nil }
+        # { 1 => [1,12], 2 => 2, 3 => [3,11], 4 => [4,10], 5 => [5,9], 6 => [6,8], 7 => 7, 8 => nil, 9 => nil, 10 => nil }
+        # { 1 => [1,12], 2 => 2, 3 => [3,11], 4 => [4,10], 5 => [5,9], 6 => [6,8], 7 => 7, 8 => nil, 9 => 14, 10 => [13,15] }
+        # { 1 => [1,12,16,25], 2 => [2,17,24], 3 => [3,11,18,23], 4 => [4,10,19], 5 => [5,9,20,22], 6 => [6,8,21], 7 => 7, 8 => nil, 9 => 14, 10 => [13,15] }
+
+## The Elevator
+
+You live in a 25 story building with one elevator. The central 
+microcontroller got eaten by rats and the building manager has asked you to 
+code up the elevator's operating procedure until he can get a new one. You 
+figure you'll have to learn to actually code soon but you first want to think
+things through and pseudocode your design.
+
+### Elevator Details
+
+The basic elevator machinery is completely dumb (it doesn't do anything it's
+not told to do) but is capable of interpreting and executing the commands:
+
+-   "open elevator door"
+-   "close elevator door"
+-   "go up full speed"
+-   "go down full speed"
+-   "slow down"
+-   "stop"
+
+&#x2026;and it accepts user input in the form of:
+
+-   floor buttons inside the elevator
+-   door open and close buttons inside the elevator
+-   up and down call buttons on each floor
+
+&#x2026;and it has sensors for:
+
+-   if a human is in the door closing path
+-   if it is currently at a floor (instead of in-between floors)
+
+&#x2026;and it has a few quirky requirements:
+
+-   it must "slow down" at least 1 floor before it stops.
+-   there is a small chance that it actually stops between floors by 
+    accident (it's an old elevator)
+
+### The Task
+
+Your job is to design a properly working elevator. It should stop on each 
+floor it is physically able to during a given trip to pick up whoever is 
+going the same direction. Additionally, make sure that no one is:
+
+1.  smashed into the ground
+2.  pushed through the roof
+3.  squished by the doors
+4.  let off in between floors
+5.  stuck going the wrong direction (unless they choose not to exit)
+
+This will be good practice thinking about all the edge cases and scenarios 
+that a user can do.
+
+The point isn't to follow any strict guidelines of syntax but rather to 
+focus on getting the logic of the problem figured out and then organizing it
+into modules that accomplish the sub-tasks that are required.
 
 ## NB: Software Engineering
 

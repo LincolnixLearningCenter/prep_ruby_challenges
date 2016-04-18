@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>README</title>
-<!-- 2016-04-18 Mon 11:00 -->
+<!-- 2016-04-18 Mon 11:38 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -143,6 +143,10 @@ for the JavaScript code in this tag.
 
 <p>
 <a href="http://www.vikingcodeschool.com/web-markup-and-coding/level-up-your-ruby-judo">The Ruby challenge problems from the Markup and Coding course of the Viking Code School Prep Work</a>
+</p>
+
+<p>
+<a href="https://www.vikingcodeschool.com">https://www.vikingcodeschool.com</a>
 </p>
 
 <div id="outline-container-sec-1" class="outline-2">
@@ -405,9 +409,165 @@ overlap( [ [0,0],[1,4] ], [ [1,1],[3,2] ] )
 <div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> A Bigger Challenge: The Counting Game</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> NB: Software Engineering</h3>
+<p>
+10 friends are sitting in a circle around a table and decide to play a new 
+game. In it, they count up through the numbers from 1 to 100. The first person
+says "1", the second says "2" and so on&#x2026; but with a few catches:
+</p>
+
+<ul class="org-ul">
+<li>Whenever the number is divisible by 7, they switch directions. So person 6 
+will say "6", person 7 will say "7", then person 6 again will say "8".
+
+<pre class="example">
+when x%y == 0 # reverse
+</pre>
+</li>
+
+<li>Whenever the number is divisible by 11, they skip the next person for the 
+following number. For instance, if person 3 says "33", person 5 will say 
+"34" instead (person 4 gets skipped).
+
+<pre class="example">
+friends = []
+10.times do 
+  friends.push 0
+end
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"># Produces each number and which person said it
+# Hash {Person(Int)=&gt;List of Numbers(Array of Integers)}
+
+# Example Return Steps
+# { 1 =&gt; 1, 2 =&gt; 2, 3 =&gt; 3, 4 =&gt; 4, 5 =&gt; 5, 6 =&gt; 6, 7 =&gt; 7, 8 =&gt; nil, 9 =&gt; nil, 10 =&gt; nil }
+# { 1 =&gt; [1,12], 2 =&gt; 2, 3 =&gt; [3,11], 4 =&gt; [4,10], 5 =&gt; [5,9], 6 =&gt; [6,8], 7 =&gt; 7, 8 =&gt; nil, 9 =&gt; nil, 10 =&gt; nil }
+# { 1 =&gt; [1,12], 2 =&gt; 2, 3 =&gt; [3,11], 4 =&gt; [4,10], 5 =&gt; [5,9], 6 =&gt; [6,8], 7 =&gt; 7, 8 =&gt; nil, 9 =&gt; 14, 10 =&gt; [13,15] }
+# { 1 =&gt; [1,12,16,25], 2 =&gt; [2,17,24], 3 =&gt; [3,11,18,23], 4 =&gt; [4,10,19], 5 =&gt; [5,9,20,22], 6 =&gt; [6,8,21], 7 =&gt; 7, 8 =&gt; nil, 9 =&gt; 14, 10 =&gt; [13,15] }
+</pre>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> The Elevator</h3>
 <div class="outline-text-3" id="text-2-1">
+<p>
+You live in a 25 story building with one elevator. The central 
+microcontroller got eaten by rats and the building manager has asked you to 
+code up the elevator's operating procedure until he can get a new one. You 
+figure you'll have to learn to actually code soon but you first want to think
+things through and pseudocode your design.
+</p>
+</div>
+
+<div id="outline-container-sec-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1"><span class="section-number-4">2.1.1</span> Elevator Details</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+The basic elevator machinery is completely dumb (it doesn't do anything it's
+not told to do) but is capable of interpreting and executing the commands:
+</p>
+
+<ul class="org-ul">
+<li>"open elevator door"
+</li>
+<li>"close elevator door"
+</li>
+<li>"go up full speed"
+</li>
+<li>"go down full speed"
+</li>
+<li>"slow down"
+</li>
+<li>"stop"
+</li>
+</ul>
+
+
+<p>
+&#x2026;and it accepts user input in the form of:
+</p>
+
+<ul class="org-ul">
+<li>floor buttons inside the elevator
+</li>
+<li>door open and close buttons inside the elevator
+</li>
+<li>up and down call buttons on each floor
+</li>
+</ul>
+
+
+<p>
+&#x2026;and it has sensors for:
+</p>
+
+<ul class="org-ul">
+<li>if a human is in the door closing path
+</li>
+<li>if it is currently at a floor (instead of in-between floors)
+</li>
+</ul>
+
+
+<p>
+&#x2026;and it has a few quirky requirements:
+</p>
+
+<ul class="org-ul">
+<li>it must "slow down" at least 1 floor before it stops.
+</li>
+<li>there is a small chance that it actually stops between floors by 
+accident (it's an old elevator)
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2"><span class="section-number-4">2.1.2</span> The Task</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Your job is to design a properly working elevator. It should stop on each 
+floor it is physically able to during a given trip to pick up whoever is 
+going the same direction. Additionally, make sure that no one is:
+</p>
+
+<ol class="org-ol">
+<li>smashed into the ground
+</li>
+<li>pushed through the roof
+</li>
+<li>squished by the doors
+</li>
+<li>let off in between floors
+</li>
+<li>stuck going the wrong direction (unless they choose not to exit)
+</li>
+</ol>
+
+
+<p>
+This will be good practice thinking about all the edge cases and scenarios 
+that a user can do.
+</p>
+
+<p>
+The point isn't to follow any strict guidelines of syntax but rather to 
+focus on getting the logic of the problem figured out and then organizing it
+into modules that accomplish the sub-tasks that are required.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> NB: Software Engineering</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
 <a href="https://www.vikingcodeschool.com/software-engineering-basics">https://www.vikingcodeschool.com/software-engineering-basics</a>
 </p>
