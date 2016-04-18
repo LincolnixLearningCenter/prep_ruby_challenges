@@ -112,4 +112,24 @@ items first.
 
 ## Primes
 
+Write a method *is<sub>prime</sub>?* which takes in a number and returns *true* if it 
+is a prime number.
+
+    > is_prime?(7)
+    => true
+    > is_prime?(14)
+    => false
+
+    def is_prime?(i)
+      range = (i-1).downto(2)
+    
+      range.each do |a|
+        #p i%a == 0
+      end
+    
+      p range.any? {|a| i%a == 0}
+    end
+    
+    is_prime?(7)
+
 ## Rectangle Overlap

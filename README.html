@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>README</title>
-<!-- 2016-04-16 Sat 11:12 -->
+<!-- 2016-04-18 Mon 00:54 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -300,7 +300,37 @@ combinations(["on","in"],["to","rope"])
 
 <div id="outline-container-sec-1-5" class="outline-3">
 <h3 id="sec-1-5"><span class="section-number-3">1.5</span> Primes</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Write a method <i>is<sub>prime</sub>?</i> which takes in a number and returns <i>true</i> if it 
+is a prime number.
+</p>
+
+<pre class="example">
+&gt; is_prime?(7)
+=&gt; true
+&gt; is_prime?(14)
+=&gt; false
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby">def is_prime?(i)
+  range = (i-1).downto(2)
+
+  range.each do |a|
+    #p i%a == 0
+  end
+
+  p range.any? {|a| i%a == 0}
+end
+
+is_prime?(7)
+</pre>
 </div>
+</div>
+</div>
+
 <div id="outline-container-sec-1-6" class="outline-3">
 <h3 id="sec-1-6"><span class="section-number-3">1.6</span> Rectangle Overlap</h3>
 </div>
