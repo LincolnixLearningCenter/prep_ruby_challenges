@@ -3,20 +3,20 @@ def overlap(a,b)
   # Array(Coordinates), Array(Coordinates) => Boolean
   
   # a = [[0,0],[3,3]]
-  ax1 = a.first.first 
-  ay1 = a.first.last 
-  ax2 = a.last.first 
-  ay2 = a.last.last 
+  ax1 = a[0][0]
+  ay1 = a[0][1] 
+  ax2 = a[1][0]
+  ay2 = a[1][1]
   
   awidth = ax2-ax1
   aheight = ay2-ay1
   aarea = awidth*aheight
   
   # b = [[1,1],[4,5]]
-  bx1 = b.first.first
-  by1 = b.first.last
-  bx2 = b.last.first
-  by2 = b.last.last
+  bx1 = b[0][0]
+  by1 = b[0][1]
+  bx2 = b[1][0]
+  by2 = b[1][1]
   
   bwidth = bx2-bx1
   bheight = by2-by1
