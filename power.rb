@@ -10,7 +10,7 @@ def power(base,exponent)
     c.push a
   end
 
-  c.inject(1) {|product, n| product * n}
+  p c.inject(1) {|product, n| product * n}
 end
 
-p power(3,4)
+power(3,4)

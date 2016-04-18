@@ -12,7 +12,7 @@ def uniques(array)
     no_dupes.push(g[0])
   end
 
-  return no_dupes
+  p no_dupes
 end
 
-p uniques([1,5,"frog",2,1,3,"frog"])
+uniques([1,5,"frog",2,1,3,"frog"])

@@ -26,10 +26,10 @@ operator for this!
         c.push a
       end
     
-      c.inject(1) {|product, n| product * n}
+      p c.inject(1) {|product, n| product * n}
     end
     
-    p power(3,4)
+    power(3,4)
 
 ## Factorial
 
@@ -50,11 +50,11 @@ every number up to the current number multiplied together.
         a.push i
       end
     
-      return a.inject(1) {|product, n| product * n}
+      p a.inject(1) {|product, n| product * n}
     
     end
     
-    p factorial(5)
+    factorial(5)
 
 ## Uniques
 
@@ -77,10 +77,10 @@ without any duplicates. Don't use Ruby's *uniq* method.
         no_dupes.push(g[0])
       end
     
-      return no_dupes
+      p no_dupes
     end
     
-    p uniques([1,5,"frog",2,1,3,"frog"])
+    uniques([1,5,"frog",2,1,3,"frog"])
 
 ## Combinations
 
@@ -177,13 +177,22 @@ otherwise overwrite each other. As expressed by a sixth grade student:
       #( [ [0  , 0  ],[3  , 3  ] ], [ [1  , 1  ],[4  , 5  ] ] )
       #( [ [ax1, ay1],[ax2, ay2] ], [ [bx1, by1],[bx2, by2] ] )
     
-      if bx1 < ax2 && by1 < ay2
+      case a
+      when bx1 < ax2 && by1 < ay2
         true
+      when bx1 < ax2 && by2 > ay1
+        true
+      when bx2 > ax1 && by2 > ay1
+        true
+      when ax1 < bx2 && ay2 > by1
+        true
+      else
+        false
       end
     end
     
-    overlap( [ [0,0],[3,3] ], [ [1,1],[4,5] ] )
-    overlap( [ [0,0],[1,4] ], [ [1,1],[3,2] ] )
+    p overlap( [ [0,0],[3,3] ], [ [1,1],[4,5] ] )
+    p overlap( [ [0,0],[1,4] ], [ [1,1],[3,2] ] )
     
     # further development needed to explore every case
 
@@ -215,6 +224,35 @@ says "1", the second says "2" and so on&#x2026; but with a few catches:
         # { 1 => [1,12], 2 => 2, 3 => [3,11], 4 => [4,10], 5 => [5,9], 6 => [6,8], 7 => 7, 8 => nil, 9 => nil, 10 => nil }
         # { 1 => [1,12], 2 => 2, 3 => [3,11], 4 => [4,10], 5 => [5,9], 6 => [6,8], 7 => 7, 8 => nil, 9 => 14, 10 => [13,15] }
         # { 1 => [1,12,16,25], 2 => [2,17,24], 3 => [3,11,18,23], 4 => [4,10,19], 5 => [5,9,20,22], 6 => [6,8,21], 7 => 7, 8 => nil, 9 => 14, 10 => [13,15] }
+    
+        friends = 10
+        persons = []
+        
+        friends.times do
+          persons.push []
+        end
+        
+        count = 1
+        
+        until count > 100
+          persons.each_with_index do |person,index|
+            id = index+1
+        
+            if count%7 > 0
+              person.push count
+            else
+              person.push "#{count}, reverse"
+            end
+        
+            p id
+            p person
+            count = count+1
+          end
+        
+        end
+
+Your job is to code a program which outputs each number and which person said 
+it. Use it to show that  player 1 will say the number "100".
 
 ## The Elevator
 
@@ -278,6 +316,16 @@ into modules that accomplish the sub-tasks that are required.
 
 -   "logic" way through problems
     -   pseudocoding ("whiteboarding")
+        -   software design
+            -   solve problem first THEN code the solution
+            -   break Problem apart into individual sub-processes called "Modules"
+                -   Modules Interface
+                    -   keep modules as independent as practically possible (aim for low "Coupling")
+                    -   make sure modules are all working towards the same goal (are highly "Cohesive")
+                    -   try to keep modules insulated from how other modules actually do 
+                        their job (keep them highly "Encapsulated")
+            -   SOLID principles
+    
     -   modular design and engineering best practices
     -   4-step engineering problem solving approach
         1.  Understand the problem

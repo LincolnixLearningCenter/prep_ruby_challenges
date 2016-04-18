@@ -24,13 +24,22 @@ def overlap(a,b)
 
   #( [ [0  , 0  ],[3  , 3  ] ], [ [1  , 1  ],[4  , 5  ] ] )
   #( [ [ax1, ay1],[ax2, ay2] ], [ [bx1, by1],[bx2, by2] ] )
-  
-  if bx1 < ax2 && by1 < ay2
+
+  case a
+  when bx1 < ax2 && by1 < ay2
     true
+  when bx1 < ax2 && by2 > ay1
+    true
+  when bx2 > ax1 && by2 > ay1
+    true
+  when ax1 < bx2 && ay2 > by1
+    true
+  else
+    false
   end
 end
 
-overlap( [ [0,0],[3,3] ], [ [1,1],[4,5] ] )
-overlap( [ [0,0],[1,4] ], [ [1,1],[3,2] ] )
+p overlap( [ [0,0],[3,3] ], [ [1,1],[4,5] ] )
+p overlap( [ [0,0],[1,4] ], [ [1,1],[3,2] ] )
 
 # further development needed to explore every case

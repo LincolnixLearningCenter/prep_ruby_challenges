@@ -10,8 +10,8 @@ def factorial(n)
     a.push i
   end
 
-  return a.inject(1) {|product, n| product * n}
+  p a.inject(1) {|product, n| product * n}
 
 end
 
-p factorial(5)
+factorial(5)
