@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>README</title>
-<!-- 2016-04-18 Mon 13:13 -->
+<!-- 2016-04-21 Thu 23:52 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -446,20 +446,14 @@ end
 
 <div class="org-src-container">
 
-<pre class="src src-ruby"># Produces each number and which person said it
+<pre class="src src-ruby" id="counting-description"># Produces each number and which person said it
 # Hash {Person(Int)=&gt;List of Numbers(Array of Integers)}
-
-# Example Return Steps
-# { 1 =&gt; 1, 2 =&gt; 2, 3 =&gt; 3, 4 =&gt; 4, 5 =&gt; 5, 6 =&gt; 6, 7 =&gt; 7, 8 =&gt; nil, 9 =&gt; nil, 10 =&gt; nil }
-# { 1 =&gt; [1,12], 2 =&gt; 2, 3 =&gt; [3,11], 4 =&gt; [4,10], 5 =&gt; [5,9], 6 =&gt; [6,8], 7 =&gt; 7, 8 =&gt; nil, 9 =&gt; nil, 10 =&gt; nil }
-# { 1 =&gt; [1,12], 2 =&gt; 2, 3 =&gt; [3,11], 4 =&gt; [4,10], 5 =&gt; [5,9], 6 =&gt; [6,8], 7 =&gt; 7, 8 =&gt; nil, 9 =&gt; 14, 10 =&gt; [13,15] }
-# { 1 =&gt; [1,12,16,25], 2 =&gt; [2,17,24], 3 =&gt; [3,11,18,23], 4 =&gt; [4,10,19], 5 =&gt; [5,9,20,22], 6 =&gt; [6,8,21], 7 =&gt; 7, 8 =&gt; nil, 9 =&gt; 14, 10 =&gt; [13,15] }
 </pre>
 </div>
 
 <div class="org-src-container">
 
-<pre class="src src-ruby">friends = 10
+<pre class="src src-ruby" id="counting-code">friends = 10
 persons = []
 
 friends.times do
@@ -486,6 +480,10 @@ until count &gt; 100
 end
 </pre>
 </div>
+
+<pre class="example">
+nil
+</pre>
 </li>
 </ul>
 
@@ -494,7 +492,34 @@ end
 Your job is to code a program which outputs each number and which person said 
 it. Use it to show that  player 1 will say the number "100".
 </p>
+
+<p>
+Tips:
+</p>
+
+<ul class="org-ul">
+<li>Remember to stick with brute force instead of trying to "figure out" the 
+trick to the problem.
+</li>
+<li>Name your variables well!
+</li>
+<li>Ignore the skipping to start out with. Only add it when you're ready.
+</li>
+</ul>
+
+
+<p>
+Advanced Option:
+</p>
+
+<ul class="org-ul">
+<li>Make your method take two inputs &#x2013; the number of players and the number 
+you're counting up to. Then see who says the last number each time!
+</li>
+</ul>
 </div>
+
+
 
 
 <div id="outline-container-sec-2-1" class="outline-3">
@@ -606,10 +631,69 @@ The point isn't to follow any strict guidelines of syntax but rather to
 focus on getting the logic of the problem figured out and then organizing it
 into modules that accomplish the sub-tasks that are required.
 </p>
-</div>
+
+<p>
+Think about:
+</p>
+
+<ul class="org-ul">
+<li>Using a loop around everything to keep your pseudocode (and elevator) 
+running.
+</li>
+<li>Writing everything in one giant mess to start with and then refactoring it
+to break apart the modules so it feels less cluttered and messy.
+</li>
+</ul>
 </div>
 </div>
 
+<div id="outline-container-sec-2-1-3" class="outline-4">
+<h4 id="sec-2-1-3"><span class="section-number-4">2.1.3</span> Use Modules!</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+This exercise is large enough that you will need to break your code up into
+modules. Remember the SOLID lessons &#x2013; modules should only have one major 
+purpose. For this exercise, you can use other modules by simply calling 
+their name in plain english and writing them out as separate programs down
+below your main program. They could be groups of procedural instructions 
+like "slow down the elevator if necessary", which runs the 
+"ReachedADestinationFloor?" program.
+</p>
+
+<p>
+<a href="https://en.wikipedia.org/wiki/SOLID">https://en.wikipedia.org/wiki/SOLID</a><sub>(object-oriented<sub>design</sub>)</sub>
+<a href="https://www.vikingcodeschool.com/software-engineering-basics/solid-design-principles">https://www.vikingcodeschool.com/software-engineering-basics/solid-design-principles</a>
+</p>
+
+<pre class="example">
+PROGRAM Elevator:
+    # other code
+    slow down the elevator if necessary
+    # other code
+END
+
+# other code
+
+PROGRAM SlowDownIfNecessary
+    IF we are traveling up at full speed
+        IF we are only 1 floor away from the lowest destination floor
+            slow down
+        END
+    ELSE IF we are traveling down at full speed
+        IF we are only 1 floor away from the highest destination floor
+            slow down
+        END
+    END
+END
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"></pre>
+</div>
+</div>
+</div>
+</div>
 
 <div id="outline-container-sec-2-2" class="outline-3">
 <h3 id="sec-2-2"><span class="section-number-3">2.2</span> NB: Software Engineering</h3>
@@ -700,6 +784,88 @@ their job (keep them highly "Encapsulated")
 </ul>
 </li>
 </ul>
+</div>
+
+<div id="outline-container-sec-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> Learning Modularity</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<ul class="org-ul">
+<li>The 3 Characteristics of Good Modules
+
+<p>
+Essentially, there are just three important guidelines for how modules 
+should operate and interact. These high level principles essentially guide
+the theory behind modularity &#x2013; it's good to break things into pieces, 
+those pieces shouldn't rely on each other for much, each piece should do 
+its own thing, and pieces should talk to each other using pre-determined
+interfaces.
+</p>
+
+<p>
+Modules should have:
+</p>
+
+<ol class="org-ol">
+<li>Low Coupling &#x2013; they should be minimally dependent on each other and 
+communicate using specified interfaces
+</li>
+
+<li>High Cohesion &#x2013; they should be focused completely on achieving the 
+overall goal
+</li>
+
+<li>High Encapsulation &#x2013; they shouldn't reveal their implementation 
+details to anyone else (and shouldn't need to)
+</li>
+</ol>
+</li>
+
+<li>5 key engineering principles. SOLID
+
+<ol class="org-ol">
+<li><b>Single Responsibility Principle (SRP)</b> 
+
+<p>
+modules should only exist to serve one purpose and may only change if 
+that purpose is modified
+</p>
+</li>
+
+<li><b>Open/Closed Principle (OCP)</b>
+
+<p>
+modules should be open for extension but closed to modification
+</p>
+</li>
+
+<li><b>Liskov Substitution Principle (DIP)</b>
+
+<p>
+modules that inherit from a parent should not alter any of that 
+parent's functionality
+</p>
+</li>
+
+<li><b>Interface Segregation Principle (ISP)</b>
+
+<p>
+each different user of a module should get to access it via a 
+specialized interface that only requires them to supply the minimal 
+amount of information
+</p>
+</li>
+
+<li><b>Dependency Inversion Principle (DIP)</b>
+
+<p>
+higher level modules should dictate the implementation details of lower
+level modules, not the other way around
+</p>
+</li>
+</ol>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>

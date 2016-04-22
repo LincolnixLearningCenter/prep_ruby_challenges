@@ -218,12 +218,6 @@ says "1", the second says "2" and so on&#x2026; but with a few catches:
     
         # Produces each number and which person said it
         # Hash {Person(Int)=>List of Numbers(Array of Integers)}
-        
-        # Example Return Steps
-        # { 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => nil, 9 => nil, 10 => nil }
-        # { 1 => [1,12], 2 => 2, 3 => [3,11], 4 => [4,10], 5 => [5,9], 6 => [6,8], 7 => 7, 8 => nil, 9 => nil, 10 => nil }
-        # { 1 => [1,12], 2 => 2, 3 => [3,11], 4 => [4,10], 5 => [5,9], 6 => [6,8], 7 => 7, 8 => nil, 9 => 14, 10 => [13,15] }
-        # { 1 => [1,12,16,25], 2 => [2,17,24], 3 => [3,11,18,23], 4 => [4,10,19], 5 => [5,9,20,22], 6 => [6,8,21], 7 => 7, 8 => nil, 9 => 14, 10 => [13,15] }
     
         friends = 10
         persons = []
@@ -250,9 +244,23 @@ says "1", the second says "2" and so on&#x2026; but with a few catches:
           end
         
         end
+    
+        nil
 
 Your job is to code a program which outputs each number and which person said 
 it. Use it to show that  player 1 will say the number "100".
+
+Tips:
+
+-   Remember to stick with brute force instead of trying to "figure out" the 
+    trick to the problem.
+-   Name your variables well!
+-   Ignore the skipping to start out with. Only add it when you're ready.
+
+Advanced Option:
+
+-   Make your method take two inputs &#x2013; the number of players and the number 
+    you're counting up to. Then see who says the last number each time!
 
 ## The Elevator
 
@@ -310,6 +318,46 @@ The point isn't to follow any strict guidelines of syntax but rather to
 focus on getting the logic of the problem figured out and then organizing it
 into modules that accomplish the sub-tasks that are required.
 
+Think about:
+
+-   Using a loop around everything to keep your pseudocode (and elevator) 
+    running.
+-   Writing everything in one giant mess to start with and then refactoring it
+    to break apart the modules so it feels less cluttered and messy.
+
+### Use Modules!
+
+This exercise is large enough that you will need to break your code up into
+modules. Remember the SOLID lessons &#x2013; modules should only have one major 
+purpose. For this exercise, you can use other modules by simply calling 
+their name in plain english and writing them out as separate programs down
+below your main program. They could be groups of procedural instructions 
+like "slow down the elevator if necessary", which runs the 
+"ReachedADestinationFloor?" program.
+
+<https://en.wikipedia.org/wiki/SOLID><sub>(object-oriented<sub>design</sub>)</sub>
+<https://www.vikingcodeschool.com/software-engineering-basics/solid-design-principles>
+
+    PROGRAM Elevator:
+        # other code
+        slow down the elevator if necessary
+        # other code
+    END
+    
+    # other code
+    
+    PROGRAM SlowDownIfNecessary
+        IF we are traveling up at full speed
+            IF we are only 1 floor away from the lowest destination floor
+                slow down
+            END
+        ELSE IF we are traveling down at full speed
+            IF we are only 1 floor away from the highest destination floor
+                slow down
+            END
+        END
+    END
+
 ## NB: Software Engineering
 
 <https://www.vikingcodeschool.com/software-engineering-basics>
@@ -344,3 +392,51 @@ into modules that accomplish the sub-tasks that are required.
                     -   pairing developers together at workstations
         -   keep software user-driven
         -   TDD
+
+### Learning Modularity
+
+-   The 3 Characteristics of Good Modules
+    
+    Essentially, there are just three important guidelines for how modules 
+    should operate and interact. These high level principles essentially guide
+    the theory behind modularity &#x2013; it's good to break things into pieces, 
+    those pieces shouldn't rely on each other for much, each piece should do 
+    its own thing, and pieces should talk to each other using pre-determined
+    interfaces.
+    
+    Modules should have:
+    
+    1.  Low Coupling &#x2013; they should be minimally dependent on each other and 
+        communicate using specified interfaces
+    
+    2.  High Cohesion &#x2013; they should be focused completely on achieving the 
+        overall goal
+    
+    3.  High Encapsulation &#x2013; they shouldn't reveal their implementation 
+        details to anyone else (and shouldn't need to)
+
+-   5 key engineering principles. SOLID
+    1.  **Single Responsibility Principle (SRP)** 
+        
+        modules should only exist to serve one purpose and may only change if 
+        that purpose is modified
+    
+    2.  **Open/Closed Principle (OCP)**
+        
+        modules should be open for extension but closed to modification
+    
+    3.  **Liskov Substitution Principle (DIP)**
+        
+        modules that inherit from a parent should not alter any of that 
+        parent's functionality
+    
+    4.  **Interface Segregation Principle (ISP)**
+        
+        each different user of a module should get to access it via a 
+        specialized interface that only requires them to supply the minimal 
+        amount of information
+    
+    5.  **Dependency Inversion Principle (DIP)**
+        
+        higher level modules should dictate the implementation details of lower
+        level modules, not the other way around
