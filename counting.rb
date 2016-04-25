@@ -2,12 +2,6 @@
 # Produces each number and which person said it
 # Hash {Person(Int)=>List of Numbers(Array of Integers)}
 
-# Example Return Steps
-# { 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => nil, 9 => nil, 10 => nil }
-# { 1 => [1,12], 2 => 2, 3 => [3,11], 4 => [4,10], 5 => [5,9], 6 => [6,8], 7 => 7, 8 => nil, 9 => nil, 10 => nil }
-# { 1 => [1,12], 2 => 2, 3 => [3,11], 4 => [4,10], 5 => [5,9], 6 => [6,8], 7 => 7, 8 => nil, 9 => 14, 10 => [13,15] }
-# { 1 => [1,12,16,25], 2 => [2,17,24], 3 => [3,11,18,23], 4 => [4,10,19], 5 => [5,9,20,22], 6 => [6,8,21], 7 => 7, 8 => nil, 9 => 14, 10 => [13,15] }
-
 friends = 10
 persons = []
 
@@ -15,21 +9,32 @@ friends.times do
   persons.push []
 end
 
-count = 1
+count = 0
+pos = 0
+inc = +1
 
-until count > 100
-  persons.each_with_index do |person,index|
-    id = index+1
+until count > 99
+  pos = pos%10
+  count = count+1
 
-    if count%7 > 0
-      person.push count
-    else
-      person.push "#{count}, reverse"
-    end
-
-    p id
-    p person
-    count = count+1
+  if count%11 == 0
+    persons[pos].push "#{count} >>>>"
+    pos = pos+(2*inc)
+  elsif count%7 == 0
+    persons[pos].push "#{count} <<"
+    pos = pos-inc
+    inc = -1
+  else
+    persons[pos].push "#{count} >>"
+    pos = pos+inc
   end
 
+end
+
+persons.each_with_index do |p,index|
+  puts "person #{index+1} says:"
+  p.each do |i|
+    p i
+  end
+  puts "\n"
 end

@@ -229,6 +229,8 @@ https://www.vikingcodeschool.com
 
 * A Bigger Challenge: The Counting Game
 
+  POSITION! INDEX 0-9! (1..10)
+
   10 friends are sitting in a circle around a table and decide to play a new 
   game. In it, they count up through the numbers from 1 to 100. The first person
   says "1", the second says "2" and so on... but with a few catches:
@@ -262,25 +264,62 @@ https://www.vikingcodeschool.com
         persons.push []
       end
 
-      count = 1
+      count = 0
+      pos = 0
+      inc = +1
 
-      until count > 100
-        persons.each_with_index do |person,index|
-          id = index+1
+      until count > 99
+        pos = pos%10
+        count = count+1
 
-          if count%7 > 0
-            person.push count
-          else
-            person.push "#{count}, reverse"
-          end
-
-          p id
-          p person
-          count = count+1
+        if count%11 == 0
+          persons[pos].push "#{count} >>>>"
+          pos = pos+(2*inc)
+        elsif count%7 == 0
+          persons[pos].push "#{count} <<"
+          pos = pos-inc
+          inc = -1
+        else
+          persons[pos].push "#{count} >>"
+          pos = pos+inc
         end
 
       end
+
+      persons.each_with_index do |p,index|
+        puts "person #{index+1} says:"
+        p.each do |i|
+          p i
+        end
+        puts "\n"
+      end
+
     #+end_src 
+
+    #+RESULTS: counting-code
+    | 1 >>  | 12 >>   | 25 >> | 38 >>   | 49 <<   | 51 >>   | 62 >>   | 64 >>   | 75 >>   | 84 <<  | 86 >> | 97 >> | 99 >>>> |
+    | 2 >>  | 24 >>   | 35 << | 37 >>   | 48 >>   | 50 >>   | 61 >>   | 74 >>   | 83 >>   | 85 >>  | 96 >> |       |         |
+    | 3 >>  | 11 >>>> | 23 >> | 34 >>   | 36 >>   | 47 >>   | 60 >>   | 73 >>   | 82 >>   | 95 >>  |       |       |         |
+    | 4 >>  | 10 >>   | 21 << | 46 >>   | 59 >>   | 70 <<   | 72 >>   | 81 >>   | 94 >>   |        |       |       |         |
+    | 5 >>  | 9 >>    | 20 >> | 22 >>>> | 33 >>>> | 45 >>   | 56 <<   | 58 >>   | 69 >>   | 71 >>  | 80 >> | 91 << | 93 >>   |
+    | 6 >>  | 8 >>    | 19 >> | 32 >>   | 57 >>   | 68 >>   | 79 >>   | 90 >>   | 92 >>   |        |       |       |         |
+    | 7 <<  | 18 >>   | 31 >> | 42 <<   | 44 >>>> | 55 >>>> | 67 >>   | 78 >>   | 89 >>   |        |       |       |         |
+    | 17 >> | 28 <<   | 30 >> | 41 >>   | 43 >>   | 54 >>   |         |         |         |        |       |       |         |
+    | 14 << | 16 >>   | 27 >> | 29 >>   | 40 >>   | 53 >>   | 66 >>>> | 77 >>>> | 88 >>>> | 100 >> |       |       |         |
+    | 13 >> | 15 >>   | 26 >> | 39 >>   | 52 >>   | 63 <<   | 65 >>   | 76 >>   | 87 >>   | 98 <<  |       |       |         |
+
+
+    | 1 >>  | 12 >>   | 25 >> | 38 >>   | 49 <<   | 51 >>   | 62 >>   | 64 >>   | 75 >>   | 84 <<  | 86 >> | 97 >> | 99 >>>> |
+    | 2 >>  | 24 >>   | 35 << | 37 >>   | 48 >>   | 50 >>   | 61 >>   | 74 >>   | 83 >>   | 85 >>  | 96 >> |       |         |
+    | 3 >>  | 11 >>>> | 23 >> | 34 >>   | 36 >>   | 47 >>   | 60 >>   | 73 >>   | 82 >>   | 95 >>  |       |       |         |
+    | 4 >>  | 10 >>   | 21 << | 46 >>   | 59 >>   | 70 <<   | 72 >>   | 81 >>   | 94 >>   |        |       |       |         |
+    | 5 >>  | 9 >>    | 20 >> | 22 >>>> | 33 >>>> | 45 >>   | 56 <<   | 58 >>   | 69 >>   | 71 >>  | 80 >> | 91 << | 93 >>   |
+    | 6 >>  | 8 >>    | 19 >> | 32 >>   | 57 >>   | 68 >>   | 79 >>   | 90 >>   | 92 >>   |        |       |       |         |
+    | 7 <<  | 18 >>   | 31 >> | 42 <<   | 44 >>>> | 55 >>>> | 67 >>   | 78 >>   | 89 >>   |        |       |       |         |
+    | 17 >> | 28 <<   | 30 >> | 41 >>   | 43 >>   | 54 >>   |         |         |         |        |       |       |         |
+    | 14 << | 16 >>   | 27 >> | 29 >>   | 40 >>   | 53 >>   | 66 >>>> | 77 >>>> | 88 >>>> | 100 >> |       |       |         |
+    | 13 >> | 15 >>   | 26 >> | 39 >>   | 52 >>   | 63 <<   | 65 >>   | 76 >>   | 87 >>   | 98 <<  |       |       |         |
+
 
     #+RESULTS:
     : nil
@@ -459,6 +498,9 @@ https://www.vikingcodeschool.com
 
       1. Low Coupling -- they should be minimally dependent on each other and 
          communicate using specified interfaces
+
+         - forcing modules to communicate with each other only by using 
+           specified interfaces
 
       2. High Cohesion -- they should be focused completely on achieving the 
          overall goal
