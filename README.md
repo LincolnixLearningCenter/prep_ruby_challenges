@@ -258,6 +258,516 @@ says "1", the second says "2" and so on&#x2026; but with a few catches:
           puts "\n"
         end
 
+# 1
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">1 >></td>
+<td class="left">12 >></td>
+<td class="left">25 >></td>
+<td class="left">38 >></td>
+<td class="left">49 <<</td>
+<td class="left">51 >></td>
+<td class="left">62 >></td>
+<td class="left">64 >></td>
+<td class="left">75 >></td>
+<td class="left">84 <<</td>
+<td class="left">86 >></td>
+<td class="left">97 >></td>
+<td class="left">99 >>>></td>
+</tr>
+</tbody>
+</table>
+
+# 2
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">2 >></td>
+<td class="left">24 >></td>
+<td class="left">35 <<</td>
+<td class="left">37 >></td>
+<td class="left">48 >></td>
+<td class="left">50 >></td>
+<td class="left">61 >></td>
+<td class="left">74 >></td>
+<td class="left">83 >></td>
+<td class="left">85 >></td>
+<td class="left">96 >></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+# 3
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">3 >></td>
+<td class="left">11 >>>></td>
+<td class="left">23 >></td>
+<td class="left">34 >></td>
+<td class="left">36 >></td>
+<td class="left">47 >></td>
+<td class="left">60 >></td>
+<td class="left">73 >></td>
+<td class="left">82 >></td>
+<td class="left">95 >></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+# 4
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">4 >></td>
+<td class="left">10 >></td>
+<td class="left">21 <<</td>
+<td class="left">46 >></td>
+<td class="left">59 >></td>
+<td class="left">70 <<</td>
+<td class="left">72 >></td>
+<td class="left">81 >></td>
+<td class="left">94 >></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+# 5
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">5 >></td>
+<td class="left">9 >></td>
+<td class="left">20 >></td>
+<td class="left">22 >>>></td>
+<td class="left">33 >>>></td>
+<td class="left">45 >></td>
+<td class="left">56 <<</td>
+<td class="left">58 >></td>
+<td class="left">69 >></td>
+<td class="left">71 >></td>
+<td class="left">80 >></td>
+<td class="left">91 <<</td>
+<td class="left">93 >></td>
+</tr>
+</tbody>
+</table>
+
+# 6
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">6 >></td>
+<td class="left">8 >></td>
+<td class="left">19 >></td>
+<td class="left">32 >></td>
+<td class="left">57 >></td>
+<td class="left">68 >></td>
+<td class="left">79 >></td>
+<td class="left">90 >></td>
+<td class="left">92 >></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+# 7
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">7 <<</td>
+<td class="left">18 >></td>
+<td class="left">31 >></td>
+<td class="left">42 <<</td>
+<td class="left">44 >>>></td>
+<td class="left">55 >>>></td>
+<td class="left">67 >></td>
+<td class="left">78 >></td>
+<td class="left">89 >></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+# 8
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">17 >></td>
+<td class="left">28 <<</td>
+<td class="left">30 >></td>
+<td class="left">41 >></td>
+<td class="left">43 >></td>
+<td class="left">54 >></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+# 9
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">14 <<</td>
+<td class="left">16 >></td>
+<td class="left">27 >></td>
+<td class="left">29 >></td>
+<td class="left">40 >></td>
+<td class="left">53 >></td>
+<td class="left">66 >>>></td>
+<td class="left">77 >>>></td>
+<td class="left">88 >>>></td>
+<td class="left">100 >></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+# 10
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">13 >></td>
+<td class="left">15 >></td>
+<td class="left">26 >></td>
+<td class="left">39 >></td>
+<td class="left">52 >></td>
+<td class="left">63 <<</td>
+<td class="left">65 >></td>
+<td class="left">76 >></td>
+<td class="left">87 >></td>
+<td class="left">98 <<</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
