@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>README</title>
-<!-- 2016-04-25 Mon 13:52 -->
+<!-- 2016-04-25 Mon 18:59 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -457,48 +457,84 @@ end
 
 <div class="org-src-container">
 
-<pre class="src src-ruby" id="counting-code">friends = 10
-persons = []
+<pre class="src src-ruby" id="counting-code">def main(players,number)
 
-friends.times do
-  persons.push []
+  persons = []
+
+  players.times do
+    persons.push []
+  end
+
+  count = 0
+  pos = 0
+  inc = +1
+
+  until count == number
+    pos = pos%10
+    count = count+1
+
+
+    if count%7 == 0
+      arrow = set_arrow(inc)
+
+      persons[pos].push "#{count} REVERSE #{arrow}"
+      pos = pos-inc
+
+      if inc.positive?
+        inc = -1
+      else
+        inc = +1
+      end
+
+      if count%11 == 0
+        persons[pos+inc].push "#{count+1} SKIP #{arrow}"
+        pos = pos+(2*inc)
+        count = count+1
+      end
+
+    elsif count%11 == 0
+      arrow = set_arrow(inc)
+
+      persons[pos].push "#{count} SKIP #{arrow}"
+      pos = pos+(2*inc)
+
+    elsif count == 100
+      persons[pos].push "#{count} SAID by #{pos+1}"
+    else
+      arrow = set_arrow(inc)
+
+      persons[pos].push "#{count} #{arrow}"
+      pos = pos+inc
+    end
+
+  end
+
+  persons.each_with_index do |p,index|
+    puts "person #{index+1} says:"
+    p.each do |i|
+      p i
+    end
+    puts "\n"
+  end
+
 end
 
-count = 0
-pos = 0
-inc = +1
-
-until count &gt; 99
-  pos = pos%10
-  count = count+1
-
-  if count%11 == 0
-    persons[pos].push "#{count} &gt;&gt;&gt;&gt;"
-    pos = pos+(2*inc)
-  elsif count%7 == 0
-    persons[pos].push "#{count} &lt;&lt;"
-    pos = pos-inc
-    inc = -1
+def set_arrow(i)
+  if i.positive?
+    "v"
   else
-    persons[pos].push "#{count} &gt;&gt;"
-    pos = pos+inc
+    "^"
   end
-
 end
 
-persons.each_with_index do |p,index|
-  puts "person #{index+1} says:"
-  p.each do |i|
-    p i
-  end
-  puts "\n"
-end
+main(10,100)
 </pre>
 </div>
 </li>
 </ul>
 </div>
 </div>
+
 <div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3"><span class="section-number-2">3</span> 1</h2>
 <div class="outline-text-2" id="text-3">
@@ -1027,205 +1063,6 @@ end
 </tr>
 </tbody>
 </table>
-
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">1 &gt;&gt;</td>
-<td class="left">12 &gt;&gt;</td>
-<td class="left">25 &gt;&gt;</td>
-<td class="left">38 &gt;&gt;</td>
-<td class="left">49 &lt;&lt;</td>
-<td class="left">51 &gt;&gt;</td>
-<td class="left">62 &gt;&gt;</td>
-<td class="left">64 &gt;&gt;</td>
-<td class="left">75 &gt;&gt;</td>
-<td class="left">84 &lt;&lt;</td>
-<td class="left">86 &gt;&gt;</td>
-<td class="left">97 &gt;&gt;</td>
-<td class="left">99 &gt;&gt;&gt;&gt;</td>
-</tr>
-
-<tr>
-<td class="left">2 &gt;&gt;</td>
-<td class="left">24 &gt;&gt;</td>
-<td class="left">35 &lt;&lt;</td>
-<td class="left">37 &gt;&gt;</td>
-<td class="left">48 &gt;&gt;</td>
-<td class="left">50 &gt;&gt;</td>
-<td class="left">61 &gt;&gt;</td>
-<td class="left">74 &gt;&gt;</td>
-<td class="left">83 &gt;&gt;</td>
-<td class="left">85 &gt;&gt;</td>
-<td class="left">96 &gt;&gt;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">3 &gt;&gt;</td>
-<td class="left">11 &gt;&gt;&gt;&gt;</td>
-<td class="left">23 &gt;&gt;</td>
-<td class="left">34 &gt;&gt;</td>
-<td class="left">36 &gt;&gt;</td>
-<td class="left">47 &gt;&gt;</td>
-<td class="left">60 &gt;&gt;</td>
-<td class="left">73 &gt;&gt;</td>
-<td class="left">82 &gt;&gt;</td>
-<td class="left">95 &gt;&gt;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">4 &gt;&gt;</td>
-<td class="left">10 &gt;&gt;</td>
-<td class="left">21 &lt;&lt;</td>
-<td class="left">46 &gt;&gt;</td>
-<td class="left">59 &gt;&gt;</td>
-<td class="left">70 &lt;&lt;</td>
-<td class="left">72 &gt;&gt;</td>
-<td class="left">81 &gt;&gt;</td>
-<td class="left">94 &gt;&gt;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">5 &gt;&gt;</td>
-<td class="left">9 &gt;&gt;</td>
-<td class="left">20 &gt;&gt;</td>
-<td class="left">22 &gt;&gt;&gt;&gt;</td>
-<td class="left">33 &gt;&gt;&gt;&gt;</td>
-<td class="left">45 &gt;&gt;</td>
-<td class="left">56 &lt;&lt;</td>
-<td class="left">58 &gt;&gt;</td>
-<td class="left">69 &gt;&gt;</td>
-<td class="left">71 &gt;&gt;</td>
-<td class="left">80 &gt;&gt;</td>
-<td class="left">91 &lt;&lt;</td>
-<td class="left">93 &gt;&gt;</td>
-</tr>
-
-<tr>
-<td class="left">6 &gt;&gt;</td>
-<td class="left">8 &gt;&gt;</td>
-<td class="left">19 &gt;&gt;</td>
-<td class="left">32 &gt;&gt;</td>
-<td class="left">57 &gt;&gt;</td>
-<td class="left">68 &gt;&gt;</td>
-<td class="left">79 &gt;&gt;</td>
-<td class="left">90 &gt;&gt;</td>
-<td class="left">92 &gt;&gt;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">7 &lt;&lt;</td>
-<td class="left">18 &gt;&gt;</td>
-<td class="left">31 &gt;&gt;</td>
-<td class="left">42 &lt;&lt;</td>
-<td class="left">44 &gt;&gt;&gt;&gt;</td>
-<td class="left">55 &gt;&gt;&gt;&gt;</td>
-<td class="left">67 &gt;&gt;</td>
-<td class="left">78 &gt;&gt;</td>
-<td class="left">89 &gt;&gt;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">17 &gt;&gt;</td>
-<td class="left">28 &lt;&lt;</td>
-<td class="left">30 &gt;&gt;</td>
-<td class="left">41 &gt;&gt;</td>
-<td class="left">43 &gt;&gt;</td>
-<td class="left">54 &gt;&gt;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">14 &lt;&lt;</td>
-<td class="left">16 &gt;&gt;</td>
-<td class="left">27 &gt;&gt;</td>
-<td class="left">29 &gt;&gt;</td>
-<td class="left">40 &gt;&gt;</td>
-<td class="left">53 &gt;&gt;</td>
-<td class="left">66 &gt;&gt;&gt;&gt;</td>
-<td class="left">77 &gt;&gt;&gt;&gt;</td>
-<td class="left">88 &gt;&gt;&gt;&gt;</td>
-<td class="left">100 &gt;&gt;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">13 &gt;&gt;</td>
-<td class="left">15 &gt;&gt;</td>
-<td class="left">26 &gt;&gt;</td>
-<td class="left">39 &gt;&gt;</td>
-<td class="left">52 &gt;&gt;</td>
-<td class="left">63 &lt;&lt;</td>
-<td class="left">65 &gt;&gt;</td>
-<td class="left">76 &gt;&gt;</td>
-<td class="left">87 &gt;&gt;</td>
-<td class="left">98 &lt;&lt;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-
-
-<pre class="example">
-nil
-</pre>
 
 
 <p>
