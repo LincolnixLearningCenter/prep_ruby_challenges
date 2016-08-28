@@ -24,12 +24,12 @@ def main(players,number)
       
       persons[pos].push "#{count} REVERSE #{arrow}"
       pos = pos-inc
-      
-      if inc.positive?
-        inc = -1
-      else
-        inc = +1
-      end
+
+      inc = inc.positive? ? -1 : +1
+        #inc = -1
+      #else
+        #inc = +1
+      #end
 
       if count%11 == 0
         persons[pos+inc].push "#{count+1} SKIP #{arrow}"

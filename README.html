@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>README</title>
-<!-- 2016-04-25 Mon 19:01 -->
+<!-- 2016-04-26 Tue 11:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -480,11 +480,7 @@ end
       persons[pos].push "#{count} REVERSE #{arrow}"
       pos = pos-inc
 
-      if inc.positive?
-        inc = -1
-      else
-        inc = +1
-      end
+      inc = inc.positive? ? -1 : +1
 
       if count%11 == 0
         persons[pos+inc].push "#{count+1} SKIP #{arrow}"

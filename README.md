@@ -244,11 +244,7 @@ says "1", the second says "2" and so on&#x2026; but with a few catches:
               persons[pos].push "#{count} REVERSE #{arrow}"
               pos = pos-inc
         
-              if inc.positive?
-                inc = -1
-              else
-                inc = +1
-              end
+              inc = inc.positive? ? -1 : +1
         
               if count%11 == 0
                 persons[pos+inc].push "#{count+1} SKIP #{arrow}"
